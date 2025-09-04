@@ -1,0 +1,101 @@
+name: "POS Conejo Negro Flow"
+version: "2.0.0"
+architecture: "task-master"
+
+# Development Workflows
+workflows:
+  development:
+    name: "Development Server"
+    command: "npm run dev"
+    background: true
+    port: 3000
+    description: "Start development server with nodemon auto-restart"
+    
+  production:
+    name: "Production Server" 
+    command: "npm start"
+    background: true
+    port: 3000
+    description: "Start production server"
+    
+  test:
+    name: "Run Tests"
+    command: "npm test"
+    background: false
+    description: "Execute Jest test suite"
+
+# Task Master Patterns
+task_patterns:
+  mvc_structure:
+    - "Separate models, views, and controllers"
+    - "Use middleware for cross-cutting concerns"
+    - "Implement service layer for business logic"
+    
+  api_design:
+    - "RESTful endpoints with proper HTTP methods"
+    - "Consistent error handling and responses"
+    - "JWT authentication for protected routes"
+    
+  database_patterns:
+    - "Mongoose schemas with validation"
+    - "Database connection pooling"
+    - "Migration and seeding strategies"
+
+# Project Context
+context:
+  business_domain: "Point of Sale System"
+  target_users: "Café and Coworking Space Staff"
+  key_features:
+    - "Product inventory management"
+    - "Sales transaction processing" 
+    - "User authentication and roles"
+    - "Reporting and analytics"
+    - "Coworking space integration"
+    
+  tech_stack:
+    backend: "Node.js + Express"
+    database: "MongoDB + Mongoose"
+    authentication: "JWT + bcryptjs"
+    deployment: "Render.com"
+    
+# Development Guidelines
+guidelines:
+  coding_standards:
+    - "Use consistent naming conventions"
+    - "Implement proper error handling"
+    - "Write unit tests for critical functions"
+    - "Follow RESTful API principles"
+    - "Validate input data thoroughly"
+    
+  security_practices:
+    - "Hash passwords with bcrypt"
+    - "Implement rate limiting"
+    - "Use CORS protection"
+    - "Sanitize user inputs"
+    - "Secure environment variables"
+
+# Common Tasks
+common_tasks:
+  - name: "Add new API endpoint"
+    steps:
+      - "Create route handler in routes/"
+      - "Add controller logic"
+      - "Update middleware if needed" 
+      - "Write tests"
+      - "Update documentation"
+      
+  - name: "Add database model"
+    steps:
+      - "Create Mongoose schema in models/"
+      - "Add validation rules"
+      - "Create model methods"
+      - "Write model tests"
+      - "Update related controllers"
+      
+  - name: "Deploy to production"
+    steps:
+      - "Run tests locally"
+      - "Commit changes to git"
+      - "Push to main branch"
+      - "Monitor Render deployment"
+      - "Verify production functionality"

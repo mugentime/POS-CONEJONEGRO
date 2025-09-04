@@ -1,0 +1,79 @@
+{
+  "environment": "development",
+  "project_name": "POS Conejo Negro",
+  "architecture": "task-master",
+  
+  "quick_commands": {
+    "start_dev": {
+      "command": "npm run dev",
+      "description": "Start development server in background",
+      "background": true
+    },
+    "test_all": {
+      "command": "npm test",
+      "description": "Run all tests"
+    },
+    "install_deps": {
+      "command": "npm install",
+      "description": "Install project dependencies"
+    },
+    "check_logs": {
+      "command": "tail -f logs/app.log",
+      "description": "Monitor application logs"
+    }
+  },
+  
+  "development_ports": {
+    "api_server": 3000,
+    "mongodb": 27017,
+    "test_server": 3001
+  },
+  
+  "environment_variables": {
+    "NODE_ENV": "development",
+    "PORT": "3000",
+    "MONGODB_URI": "required",
+    "JWT_SECRET": "required",
+    "SESSION_SECRET": "required"
+  },
+  
+  "file_structure": {
+    "api_routes": "routes/",
+    "models": "models/",
+    "middleware": "middleware/",
+    "controllers": "controllers/",
+    "utils": "utils/",
+    "public": "public/",
+    "tests": "tests/"
+  },
+  
+  "task_master_contexts": [
+    {
+      "context": "POS System Operations",
+      "focus_areas": [
+        "Sales transaction processing",
+        "Inventory management",
+        "User authentication",
+        "Reporting and analytics"
+      ]
+    },
+    {
+      "context": "Technical Architecture", 
+      "focus_areas": [
+        "Express.js API design",
+        "MongoDB data modeling",
+        "JWT authentication",
+        "Error handling patterns"
+      ]
+    },
+    {
+      "context": "Business Logic",
+      "focus_areas": [
+        "Product catalog management",
+        "Order processing workflow",
+        "User role permissions",
+        "Financial calculations"
+      ]
+    }
+  ]
+}

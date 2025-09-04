@@ -1,0 +1,51 @@
+{
+  "name": "POS Conejo Negro",
+  "description": "Sistema POS para Café Coworking Conejo Negro - Task Master Architecture",
+  "version": "2.0.0",
+  "architecture": "task-master",
+  "framework": "express-mongodb",
+  "environment": {
+    "node_version": ">=16.0.0",
+    "database": "mongodb",
+    "deployment": "render"
+  },
+  "project_structure": {
+    "root": "C:\\Users\\je2al\\Desktop\\POS-CONEJONEGRO",
+    "main_entry": "server.js",
+    "public_dir": "public",
+    "routes_dir": "routes",
+    "models_dir": "models",
+    "middleware_dir": "middleware",
+    "utils_dir": "utils",
+    "tests_dir": "tests"
+  },
+  "development": {
+    "start_command": "npm run dev",
+    "test_command": "npm test",
+    "build_command": "npm start",
+    "port": 3000,
+    "auto_restart": true,
+    "background_mode": true
+  },
+  "features": [
+    "authentication",
+    "inventory_management", 
+    "sales_tracking",
+    "user_management",
+    "reporting",
+    "coworking_integration"
+  ],
+  "security": {
+    "jwt_auth": true,
+    "bcrypt_hashing": true,
+    "helmet_protection": true,
+    "rate_limiting": true,
+    "cors_enabled": true
+  },
+  "task_master_config": {
+    "architecture_pattern": "mvc",
+    "separation_of_concerns": true,
+    "modular_design": true,
+    "scalable_structure": true
+  }
+}

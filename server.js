@@ -1129,9 +1129,9 @@ app.get('/online', (req, res) => {
     <script>
         // Ensure mobile scrolling works properly
         document.addEventListener('DOMContentLoaded', function() {
-            // Set proper touch-action for mobile scrolling
-            document.documentElement.style.touchAction = 'manipulation';
-            document.body.style.touchAction = 'manipulation';
+            // Set proper touch-action for mobile scrolling - allow pan-y and pinch-zoom
+            document.documentElement.style.touchAction = 'pan-y pinch-zoom';
+            document.body.style.touchAction = 'pan-y pinch-zoom';
             
             // Ensure body allows scrolling
             document.body.style.overflowY = 'auto';
@@ -1140,7 +1140,7 @@ app.get('/online', (req, res) => {
             // Apply to all containers and ensure proper scrolling
             const containers = document.querySelectorAll('.container, .main-content, .nav-container');
             containers.forEach(el => {
-                el.style.touchAction = 'manipulation';
+                el.style.touchAction = 'pan-y pinch-zoom';
                 el.style.webkitOverflowScrolling = 'touch';
             });
             
