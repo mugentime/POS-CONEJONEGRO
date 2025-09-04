@@ -512,6 +512,9 @@ app.get('/coworking', (req, res) => {
                 padding: 10px;
                 min-height: 100vh;
                 height: auto;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
             }
             
             .container {
@@ -787,6 +790,12 @@ app.get('/online', (req, res) => {
         
         /* Mobile optimizations */
         @media (max-width: 768px) {
+            body {
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+            }
+            
             .nav-container {
                 flex-direction: column;
                 padding: 10px;
