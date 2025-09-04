@@ -136,7 +136,7 @@ app.get('/', (req, res) => {
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
-            touch-action: manipulation;
+            touch-action: pan-y pinch-zoom;
         }
 
         body {
@@ -148,14 +148,22 @@ app.get('/', (req, res) => {
             overflow-x: hidden;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            touch-action: manipulation;
+            touch-action: pan-y pinch-zoom;
+            -webkit-touch-callout: none;
         }
-
-        .container {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
+        
+        /* Only disable selection where truly needed */
+        .no-select,
+        button,
+        [role="button"],
+        .option-card,
+        .nav-item {
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
             background: var(--bg-card);
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 217, 255, 0.3);
@@ -298,7 +306,7 @@ app.get('/', (req, res) => {
                 margin: 10px auto;
                 max-width: 95%;
                 min-height: auto;
-                touch-action: manipulation !important;
+                touch-action: pan-y pinch-zoom !important;
                 -webkit-overflow-scrolling: touch !important;
             }
             
@@ -376,9 +384,9 @@ app.get('/', (req, res) => {
     <script>
         // Ensure mobile scrolling works properly
         document.addEventListener('DOMContentLoaded', function() {
-            // Set proper touch-action for mobile scrolling
-            document.documentElement.style.touchAction = 'manipulation';
-            document.body.style.touchAction = 'manipulation';
+            // Set proper touch-action for mobile scrolling - allow pan-y and pinch-zoom
+            document.documentElement.style.touchAction = 'pan-y pinch-zoom';
+            document.body.style.touchAction = 'pan-y pinch-zoom';
             
             // Ensure body allows scrolling
             document.body.style.overflowY = 'auto';
@@ -387,7 +395,7 @@ app.get('/', (req, res) => {
             // Apply to all containers and ensure proper scrolling
             const containers = document.querySelectorAll('.container, .main-content, .nav-container');
             containers.forEach(el => {
-                el.style.touchAction = 'manipulation';
+                el.style.touchAction = 'pan-y pinch-zoom';
                 el.style.webkitOverflowScrolling = 'touch';
             });
             
@@ -412,15 +420,7 @@ app.get('/', (req, res) => {
                     // Allow natural scrolling behavior
                 }, { passive: true });
                 
-                // Prevent zoom on double tap but allow scrolling
-                let lastTouchEnd = 0;
-                document.addEventListener('touchend', function(event) {
-                    const now = (new Date()).getTime();
-                    if (now - lastTouchEnd <= 300) {
-                        event.preventDefault();
-                    }
-                    lastTouchEnd = now;
-                }, false);
+                // Allow natural touch behavior including zoom
             }
             
             // Additional mobile scroll fix
@@ -516,7 +516,8 @@ app.get('/coworking', (req, res) => {
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
-            touch-action: manipulation;
+            touch-action: pan-y pinch-zoom;
+        }
         }
         body {
             font-family: 'Roboto', sans-serif;
@@ -527,7 +528,16 @@ app.get('/coworking', (req, res) => {
             overflow-x: hidden;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            touch-action: manipulation;
+            touch-action: pan-y pinch-zoom;
+        }
+        
+        /* Only disable selection where truly needed */
+        .no-select,
+        button,
+        [role="button"],
+        .nav-item {
+            -webkit-user-select: none;
+            user-select: none;
         }
         .container {
             max-width: 1200px;
@@ -759,9 +769,9 @@ app.get('/coworking', (req, res) => {
     <script>
         // Ensure mobile scrolling works properly
         document.addEventListener('DOMContentLoaded', function() {
-            // Set proper touch-action for mobile scrolling
-            document.documentElement.style.touchAction = 'manipulation';
-            document.body.style.touchAction = 'manipulation';
+            // Set proper touch-action for mobile scrolling - allow pan-y and pinch-zoom
+            document.documentElement.style.touchAction = 'pan-y pinch-zoom';
+            document.body.style.touchAction = 'pan-y pinch-zoom';
             
             // Ensure body allows scrolling
             document.body.style.overflowY = 'auto';
@@ -770,7 +780,7 @@ app.get('/coworking', (req, res) => {
             // Apply to all containers and ensure proper scrolling
             const containers = document.querySelectorAll('.container, .main-content, .nav-container');
             containers.forEach(el => {
-                el.style.touchAction = 'manipulation';
+                el.style.touchAction = 'pan-y pinch-zoom';
                 el.style.webkitOverflowScrolling = 'touch';
             });
             
@@ -834,7 +844,8 @@ app.get('/online', (req, res) => {
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
-            touch-action: manipulation;
+            touch-action: pan-y pinch-zoom;
+        }
         }
         body {
             font-family: 'Roboto', sans-serif;
@@ -844,7 +855,16 @@ app.get('/online', (req, res) => {
             overflow-x: hidden;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            touch-action: manipulation;
+            touch-action: pan-y pinch-zoom;
+        }
+        
+        /* Only disable selection where truly needed */
+        .no-select,
+        button,
+        [role="button"],
+        .nav-item {
+            -webkit-user-select: none;
+            user-select: none;
         }
         .navbar {
             background: var(--bg-card);
