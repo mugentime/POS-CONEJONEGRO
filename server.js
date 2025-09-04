@@ -106,7 +106,7 @@ app.get('/', (req, res) => {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0">
     <title>Conejo Negro - POS System</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -136,19 +136,23 @@ app.get('/', (req, res) => {
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
             color: var(--text-primary);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: manipulation;
         }
 
         .container {
             text-align: center;
             max-width: 800px;
+            margin: 0 auto;
             padding: 40px;
             background: var(--bg-card);
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 217, 255, 0.3);
             border: 1px solid rgba(0, 217, 255, 0.2);
+            position: relative;
         }
 
         .logo {
@@ -264,17 +268,40 @@ app.get('/', (req, res) => {
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                min-height: 100vh;
+                height: auto;
+            }
+            
             .container {
                 padding: 20px;
-                margin: 20px;
+                margin: 10px auto;
+                max-width: 95%;
+                min-height: auto;
             }
             
             .title {
-                font-size: 36px;
+                font-size: 32px;
             }
             
             .subtitle {
-                font-size: 18px;
+                font-size: 16px;
+            }
+            
+            .options {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .option-card {
+                padding: 20px;
+                margin: 10px 0;
+            }
+            
+            .option-card:active {
+                transform: translateY(0);
+                transition: all 0.1s ease;
             }
         }
     </style>
@@ -392,7 +419,7 @@ app.get('/coworking', (req, res) => {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0">
     <title>Conejo Negro - Café Coworking Online</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -415,6 +442,10 @@ app.get('/coworking', (req, res) => {
             color: var(--text-primary);
             min-height: 100vh;
             padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: manipulation;
         }
         .container {
             max-width: 1200px;
@@ -473,6 +504,84 @@ app.get('/coworking', (req, res) => {
             padding: 20px;
             border-radius: 10px;
             border-left: 4px solid var(--accent-cyan);
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                min-height: 100vh;
+                height: auto;
+            }
+            
+            .container {
+                padding: 15px;
+                margin: 5px auto;
+                max-width: 95%;
+                min-height: auto;
+            }
+            
+            .title {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+            
+            .nav-item {
+                display: inline-block;
+                margin: 5px;
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            .nav-item span {
+                display: block;
+                font-size: 12px;
+                margin-top: 5px;
+            }
+            
+            .coworking-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin: 20px 0;
+            }
+            
+            .stat-card {
+                padding: 15px;
+            }
+            
+            .stat-number {
+                font-size: 24px;
+            }
+            
+            .record-item {
+                padding: 15px;
+                margin: 10px 0;
+            }
+            
+            .record-item > div {
+                flex-direction: column !important;
+                text-align: left !important;
+            }
+            
+            .record-item > div > div:last-child {
+                text-align: left !important;
+                margin-top: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .nav-item {
+                margin: 3px;
+                padding: 8px 12px;
+            }
         }
     </style>
 </head>
@@ -575,7 +684,7 @@ app.get('/online', (req, res) => {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0">
     <title>Conejo Negro - Café Coworking Online</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -596,6 +705,10 @@ app.get('/online', (req, res) => {
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
             color: var(--text-primary);
             min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: manipulation;
         }
         .navbar {
             background: var(--bg-card);
@@ -670,6 +783,111 @@ app.get('/online', (req, res) => {
             font-size: 32px;
             font-weight: bold;
             color: var(--success);
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 10px;
+                gap: 15px;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            
+            .nav-item {
+                display: inline-block;
+                margin: 3px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+            
+            .nav-item span {
+                display: block;
+                font-size: 11px;
+                margin-top: 3px;
+            }
+            
+            .main-content {
+                padding: 20px 10px;
+            }
+            
+            .main-content h1 {
+                font-size: 28px !important;
+                margin-bottom: 20px !important;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .dashboard-card {
+                padding: 20px;
+            }
+            
+            .card-icon {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+            
+            .card-title {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+            
+            .card-value {
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 8px;
+            }
+            
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .nav-item {
+                margin: 2px;
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            
+            .main-content {
+                padding: 15px 8px;
+            }
+            
+            .main-content h1 {
+                font-size: 24px !important;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .dashboard-card {
+                padding: 15px;
+            }
+            
+            .card-icon {
+                font-size: 28px;
+            }
+            
+            .card-title {
+                font-size: 14px;
+            }
+            
+            .card-value {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
