@@ -28,6 +28,10 @@ services:
         value: true
       - key: LOG_LEVEL
         value: info
+      - key: API_KEY
+        value: KP5NFDffn3reE3md2SKkrcRTgTLwJKrE7wvBVNizdZfuBswKGVbBTluopkmofax1
+      - key: SECRET_KEY
+        value: 2bUXyAuNY0zjrlXWi5xC8DDmVxkhOtYu7W6RwstZ33Ytr7jzins2SUemRCDpLIV5
         
     # Build settings
     buildFilter:
