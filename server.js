@@ -131,6 +131,13 @@ app.get('/', (req, res) => {
             box-sizing: border-box;
         }
 
+        html {
+            height: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
@@ -140,7 +147,7 @@ app.get('/', (req, res) => {
             overflow-x: hidden;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            touch-action: pan-y;
+            touch-action: pan-y pinch-zoom;
         }
 
         .container {
@@ -352,6 +359,19 @@ app.get('/', (req, res) => {
             </p>
         </div>
     </div>
+    <script>
+        // Ensure mobile scrolling works properly
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prevent any touch event handlers from blocking scrolling
+            document.body.style.touchAction = 'pan-y pinch-zoom';
+            
+            // Ensure smooth scrolling on mobile
+            if ('ontouchstart' in window) {
+                document.documentElement.style.webkitOverflowScrolling = 'touch';
+                document.body.style.webkitOverflowScrolling = 'touch';
+            }
+        });
+    </script>
 </body>
 </html>
     `);
@@ -436,6 +456,12 @@ app.get('/coworking', (req, res) => {
             --success: #00ff88;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html {
+            height: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
@@ -445,7 +471,7 @@ app.get('/coworking', (req, res) => {
             overflow-x: hidden;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            touch-action: manipulation;
+            touch-action: pan-y pinch-zoom;
         }
         .container {
             max-width: 1200px;
@@ -522,8 +548,8 @@ app.get('/coworking', (req, res) => {
                 -webkit-overflow-scrolling: touch !important;
                 scroll-behavior: smooth;
                 position: relative !important;
-                touch-action: pan-y !important;
-                overscroll-behavior-y: auto !important;
+                touch-action: pan-y pinch-zoom !important;
+                overscroll-behavior-y: contain !important;
             }
             
             .container {
@@ -676,6 +702,19 @@ app.get('/coworking', (req, res) => {
             </p>
         </div>
     </div>
+    <script>
+        // Ensure mobile scrolling works properly
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prevent any touch event handlers from blocking scrolling
+            document.body.style.touchAction = 'pan-y pinch-zoom';
+            
+            // Ensure smooth scrolling on mobile
+            if ('ontouchstart' in window) {
+                document.documentElement.style.webkitOverflowScrolling = 'touch';
+                document.body.style.webkitOverflowScrolling = 'touch';
+            }
+        });
+    </script>
 </body>
 </html>
         `);
@@ -712,6 +751,12 @@ app.get('/online', (req, res) => {
             --success: #00ff88;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html {
+            height: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
@@ -720,7 +765,7 @@ app.get('/online', (req, res) => {
             overflow-x: hidden;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            touch-action: manipulation;
+            touch-action: pan-y pinch-zoom;
         }
         .navbar {
             background: var(--bg-card);
@@ -811,8 +856,8 @@ app.get('/online', (req, res) => {
                 -webkit-overflow-scrolling: touch !important;
                 scroll-behavior: smooth;
                 position: relative !important;
-                touch-action: pan-y !important;
-                overscroll-behavior-y: auto !important;
+                touch-action: pan-y pinch-zoom !important;
+                overscroll-behavior-y: contain !important;
             }
             
             .nav-container {
@@ -984,6 +1029,19 @@ app.get('/online', (req, res) => {
             </p>
         </div>
     </div>
+    <script>
+        // Ensure mobile scrolling works properly
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prevent any touch event handlers from blocking scrolling
+            document.body.style.touchAction = 'pan-y pinch-zoom';
+            
+            // Ensure smooth scrolling on mobile
+            if ('ontouchstart' in window) {
+                document.documentElement.style.webkitOverflowScrolling = 'touch';
+                document.body.style.webkitOverflowScrolling = 'touch';
+            }
+        });
+    </script>
 </body>
 </html>
     `);
