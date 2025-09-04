@@ -508,13 +508,20 @@ app.get('/coworking', (req, res) => {
         
         /* Mobile optimizations */
         @media (max-width: 768px) {
+            html {
+                height: 100% !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+            
             body {
                 padding: 10px;
+                height: auto !important;
                 min-height: 100vh;
-                height: auto;
-                overflow-y: scroll;
-                -webkit-overflow-scrolling: touch;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
                 scroll-behavior: smooth;
+                position: relative !important;
             }
             
             .container {
@@ -790,10 +797,18 @@ app.get('/online', (req, res) => {
         
         /* Mobile optimizations */
         @media (max-width: 768px) {
+            html {
+                height: 100% !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+            
             body {
-                overflow-y: scroll;
-                -webkit-overflow-scrolling: touch;
+                height: auto !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
                 scroll-behavior: smooth;
+                position: relative !important;
             }
             
             .nav-container {
