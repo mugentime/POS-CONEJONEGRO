@@ -362,13 +362,25 @@ app.get('/', (req, res) => {
     <script>
         // Ensure mobile scrolling works properly
         document.addEventListener('DOMContentLoaded', function() {
-            // Prevent any touch event handlers from blocking scrolling
+            // Force single-finger scrolling on all elements
+            document.documentElement.style.touchAction = 'pan-y pinch-zoom';
             document.body.style.touchAction = 'pan-y pinch-zoom';
+            
+            // Apply to all containers
+            const containers = document.querySelectorAll('.container, .main-content, .nav-container');
+            containers.forEach(el => {
+                el.style.touchAction = 'pan-y pinch-zoom';
+            });
             
             // Ensure smooth scrolling on mobile
             if ('ontouchstart' in window) {
                 document.documentElement.style.webkitOverflowScrolling = 'touch';
                 document.body.style.webkitOverflowScrolling = 'touch';
+                
+                // Remove any conflicting touch handlers
+                document.body.addEventListener('touchstart', function(e) {
+                    // Don't prevent default - let natural scrolling work
+                }, { passive: true });
             }
         });
     </script>
@@ -535,21 +547,16 @@ app.get('/coworking', (req, res) => {
         /* Mobile optimizations */
         @media (max-width: 768px) {
             html {
-                height: 100% !important;
                 overflow-y: auto !important;
                 -webkit-overflow-scrolling: touch !important;
             }
             
             body {
                 padding: 10px;
-                height: auto !important;
                 min-height: 100vh;
                 overflow-y: auto !important;
                 -webkit-overflow-scrolling: touch !important;
-                scroll-behavior: smooth;
-                position: relative !important;
                 touch-action: pan-y pinch-zoom !important;
-                overscroll-behavior-y: contain !important;
             }
             
             .container {
@@ -557,6 +564,7 @@ app.get('/coworking', (req, res) => {
                 margin: 5px auto;
                 max-width: 95%;
                 min-height: auto;
+                touch-action: pan-y pinch-zoom;
             }
             
             .title {
@@ -705,13 +713,25 @@ app.get('/coworking', (req, res) => {
     <script>
         // Ensure mobile scrolling works properly
         document.addEventListener('DOMContentLoaded', function() {
-            // Prevent any touch event handlers from blocking scrolling
+            // Force single-finger scrolling on all elements
+            document.documentElement.style.touchAction = 'pan-y pinch-zoom';
             document.body.style.touchAction = 'pan-y pinch-zoom';
+            
+            // Apply to all containers
+            const containers = document.querySelectorAll('.container, .main-content, .nav-container');
+            containers.forEach(el => {
+                el.style.touchAction = 'pan-y pinch-zoom';
+            });
             
             // Ensure smooth scrolling on mobile
             if ('ontouchstart' in window) {
                 document.documentElement.style.webkitOverflowScrolling = 'touch';
                 document.body.style.webkitOverflowScrolling = 'touch';
+                
+                // Remove any conflicting touch handlers
+                document.body.addEventListener('touchstart', function(e) {
+                    // Don't prevent default - let natural scrolling work
+                }, { passive: true });
             }
         });
     </script>
@@ -845,19 +865,14 @@ app.get('/online', (req, res) => {
         /* Mobile optimizations */
         @media (max-width: 768px) {
             html {
-                height: 100% !important;
                 overflow-y: auto !important;
                 -webkit-overflow-scrolling: touch !important;
             }
             
             body {
-                height: auto !important;
                 overflow-y: auto !important;
                 -webkit-overflow-scrolling: touch !important;
-                scroll-behavior: smooth;
-                position: relative !important;
                 touch-action: pan-y pinch-zoom !important;
-                overscroll-behavior-y: contain !important;
             }
             
             .nav-container {
@@ -886,6 +901,7 @@ app.get('/online', (req, res) => {
             
             .main-content {
                 padding: 20px 10px;
+                touch-action: pan-y pinch-zoom;
             }
             
             .main-content h1 {
