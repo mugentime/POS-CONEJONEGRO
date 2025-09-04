@@ -1,0 +1,51 @@
+services:
+  - type: web
+    name: conejo-negro-pos
+    env: node
+    region: oregon
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    branch: master
+    
+    # Environment Variables
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        fromDatabase:
+          name: conejo-negro-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: BACKUP_ENABLED
+        value: true
+      - key: LOG_LEVEL
+        value: info
+        
+    # Build settings
+    buildFilter:
+      paths:
+      - server.js
+      - package.json
+      - package-lock.json
+      - .github/**
+      ignoredPaths:
+      - README.md
+      - .gitignore
+      - docs/**
+      - .env.example
+
+# Database configuration
+databases:
+  - name: conejo-negro-db
+    databaseName: conejo_negro_pos
+    user: pos_admin
+    region: oregon
+    plan: starter
