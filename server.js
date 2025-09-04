@@ -140,7 +140,7 @@ app.get('/', (req, res) => {
             overflow-x: hidden;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            touch-action: manipulation;
+            touch-action: pan-y;
         }
 
         .container {
@@ -522,6 +522,8 @@ app.get('/coworking', (req, res) => {
                 -webkit-overflow-scrolling: touch !important;
                 scroll-behavior: smooth;
                 position: relative !important;
+                touch-action: pan-y !important;
+                overscroll-behavior-y: auto !important;
             }
             
             .container {
@@ -809,6 +811,8 @@ app.get('/online', (req, res) => {
                 -webkit-overflow-scrolling: touch !important;
                 scroll-behavior: smooth;
                 position: relative !important;
+                touch-action: pan-y !important;
+                overscroll-behavior-y: auto !important;
             }
             
             .nav-container {
