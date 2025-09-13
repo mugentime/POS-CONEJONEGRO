@@ -14,7 +14,7 @@
       "Test Suite": "POS Conejo Negro E2E Tests",
       "Environment": "development",
       "Base URL": "http://localhost:3000",
-      "Timestamp": "2025-09-12T17:34:49.066Z",
+      "Timestamp": "2025-09-13T06:00:04.083Z",
       "actualWorkers": 1
     },
     "preserveOutput": "always",
@@ -54,7 +54,7 @@
           "Test Suite": "POS Conejo Negro E2E Tests",
           "Environment": "development",
           "Base URL": "http://localhost:3000",
-          "Timestamp": "2025-09-12T17:34:49.066Z",
+          "Timestamp": "2025-09-13T06:00:04.083Z",
           "actualWorkers": 1
         },
         "id": "setup",
@@ -64,7 +64,7 @@
         "testMatch": [
           "/.*\\.setup\\.js/"
         ],
-        "timeout": 120000
+        "timeout": 30000
       },
       {
         "outputDir": "/workspaces/POS-CONEJONEGRO/tests/results",
@@ -74,7 +74,7 @@
           "Test Suite": "POS Conejo Negro E2E Tests",
           "Environment": "development",
           "Base URL": "http://localhost:3000",
-          "Timestamp": "2025-09-12T17:34:49.066Z",
+          "Timestamp": "2025-09-13T06:00:04.083Z",
           "actualWorkers": 1
         },
         "id": "chromium",
@@ -84,7 +84,7 @@
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 120000
+        "timeout": 30000
       }
     ],
     "shard": null,
@@ -105,18 +105,18 @@
   },
   "suites": [
     {
-      "title": "capture-landing-dom.spec.js",
-      "file": "capture-landing-dom.spec.js",
+      "title": "login-auth.spec.js",
+      "file": "login-auth.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Captura el DOM de la landing",
-          "ok": true,
+          "title": "Login completo con usuario admin",
+          "ok": false,
           "tags": [],
           "tests": [
             {
-              "timeout": 120000,
+              "timeout": 30000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "chromium",
@@ -125,23 +125,55 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 6522,
-                  "errors": [],
+                  "status": "timedOut",
+                  "duration": 32190,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/workspaces/POS-CONEJONEGRO/tests/e2e/login-auth.spec.js",
+                        "column": 14,
+                        "line": 16
+                      },
+                      "message": "Error: page.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[name=\"email\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 14 |\u001b[39m\n \u001b[90m 15 |\u001b[39m   \u001b[90m// Rellenar el formulario de login\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 16 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'input[name=\"email\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[33mADMIN_EMAIL\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'input[name=\"password\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[33mADMIN_PASSWORD\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'form#login-form button[type=\"submit\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 19 |\u001b[39m\u001b[0m\n\u001b[2m    at /workspaces/POS-CONEJONEGRO/tests/e2e/login-auth.spec.js:16:14\u001b[22m"
+                    }
+                  ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-09-12T17:34:49.946Z",
+                  "startTime": "2025-09-13T06:00:07.016Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspaces/POS-CONEJONEGRO/tests/results/login-auth-Login-completo-con-usuario-admin-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/workspaces/POS-CONEJONEGRO/tests/results/login-auth-Login-completo-con-usuario-admin-chromium/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspaces/POS-CONEJONEGRO/tests/results/login-auth-Login-completo-con-usuario-admin-chromium/error-context.md"
+                    }
+                  ]
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "393d4b029f194178679f-dd30cd7332c557ea002b",
-          "file": "capture-landing-dom.spec.js",
-          "line": 6,
+          "id": "a39a04056fed7f4aabed-49e0e233e8950848fb21",
+          "file": "login-auth.spec.js",
+          "line": 10,
           "column": 1
         }
       ]
@@ -149,11 +181,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-09-12T17:34:49.073Z",
-    "duration": 7915.232,
-    "expected": 1,
+    "startTime": "2025-09-13T06:00:04.088Z",
+    "duration": 58988.916000000005,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }
