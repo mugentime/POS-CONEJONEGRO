@@ -1,0 +1,108 @@
+{
+    "// GitHub Copilot Configuration": "Optimized settings for Copilot functionality",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "javascript": true,
+        "typescript": true,
+        "html": true,
+        "css": true,
+        "json": true,
+        "jsonc": true
+    },
+    "github.copilot.advanced": {
+        "listCount": 10,
+        "inlineSuggestCount": 3
+    },
+
+    "// JavaScript Language Support": "Enhanced IntelliSense for better Copilot context",
+    "javascript.suggest.autoImports": true,
+    "javascript.suggest.includeAutomaticOptionalChainCompletions": true,
+    "javascript.suggest.includeCompletionsForImportStatements": true,
+    "javascript.suggest.completeFunctionCalls": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "javascript.preferences.includePackageJsonAutoImports": "auto",
+
+    "// TypeScript Configuration": "Even for JS projects, helps with IntelliSense",
+    "typescript.suggest.autoImports": true,
+    "typescript.suggest.includeAutomaticOptionalChainCompletions": true,
+    "typescript.suggest.includeCompletionsForImportStatements": true,
+    "typescript.suggest.completeFunctionCalls": true,
+
+    "// IntelliSense and Language Server": "Improved code analysis",
+    "editor.inlineSuggest.enabled": true,
+    "editor.suggest.preview": true,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "on",
+    "editor.acceptSuggestionOnCommitCharacter": true,
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": "on"
+    },
+
+    "// File Associations": "Ensure proper language detection",
+    "files.associations": {
+        "*.js": "javascript",
+        "*.mjs": "javascript",
+        "*.cjs": "javascript",
+        "*.json": "jsonc"
+    },
+
+    "// ESLint Integration": "Better code quality context for Copilot",
+    "eslint.enable": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+        "html"
+    ],
+
+    "// Editor Configuration": "Optimal editing experience",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+
+    "// File Explorer": "Better project navigation",
+    "files.exclude": {
+        "**/node_modules": false,
+        "**/package-lock.json": true,
+        "**/.git": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/coverage": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/package-lock.json": true,
+        "**/dist": true,
+        "**/build": true
+    },
+
+    "// Copilot Chat": "Enable chat functionality",
+    "github.copilot.chat.enabled": true,
+    "github.copilot.chat.welcomeMessage": "always",
+
+    "// Emmet": "HTML/CSS shortcuts",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "html": "html"
+    },
+
+    "// Terminal": "Integrated terminal configuration",
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.cwd": "${workspaceFolder}",
+
+    "// Git Configuration": "Version control integration",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+
+    "// Workspace Trust": "Security settings",
+    "security.workspace.trust.untrustedFiles": "open"
+}
