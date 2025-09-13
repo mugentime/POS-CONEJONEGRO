@@ -63,7 +63,7 @@
         "deploy:health": "node scripts/health-check.js",
         "deploy:trigger": "node trigger-render-deploy.js",
         "deploy:status": "npm run deploy:health && npm run deploy:validate",
-        "lint": "echo 'Linting check passed' || exit 0",
+        "lint": "eslint . --ext .js --fix",
         "precommit": "node scripts/pre-commit-check.js && npm run lint",
         "ci:test": "echo 'CI tests passed' || exit 0",
         "ci:build": "npm run build",
@@ -114,8 +114,10 @@
         "@playwright/mcp": "^0.0.37",
         "@playwright/test": "^1.55.0",
         "cross-env": "^10.0.0",
+        "eslint": "^8.57.0",
         "nodemon": "^3.0.1",
-        "playwright": "^1.55.0"
+        "playwright": "^1.55.0",
+        "prettier": "^3.1.0"
     },
     "railway_restart_trigger": "2025-09-03T15:23:36.524Z"
 }

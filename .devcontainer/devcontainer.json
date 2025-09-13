@@ -1,0 +1,86 @@
+{
+	"name": "POS Conejo Negro - Node.js Development",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
+	
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true
+		}
+	},
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"github.copilot",
+				"github.copilot-chat",
+				"ms-vscode.vscode-json",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"ms-vscode.js-debug",
+				"ms-vscode.vscode-typescript-next",
+				"christian-kohler.path-intellisense",
+				"formulahendry.auto-rename-tag",
+				"ms-vscode-remote.remote-containers",
+				"github.vscode-github-actions"
+			],
+			"settings": {
+				"github.copilot.enable": {
+					"*": true,
+					"javascript": true,
+					"typescript": true,
+					"html": true,
+					"css": true,
+					"json": true
+				},
+				"github.copilot.chat.enabled": true,
+				"editor.inlineSuggest.enabled": true,
+				"javascript.suggest.autoImports": true,
+				"typescript.suggest.autoImports": true,
+				"editor.formatOnSave": true,
+				"eslint.enable": true,
+				"eslint.autoFixOnSave": true
+			}
+		}
+	},
+
+	"forwardPorts": [3000, 5432, 6379],
+	"portsAttributes": {
+		"3000": {
+			"label": "POS Application",
+			"onAutoForward": "notify"
+		},
+		"5432": {
+			"label": "PostgreSQL Database",
+			"onAutoForward": "silent"
+		},
+		"6379": {
+			"label": "Redis Cache",
+			"onAutoForward": "silent"
+		}
+	},
+
+	"postCreateCommand": "npm install && npm run setup:env",
+	"postStartCommand": "npm run setup:db",
+
+	"remoteUser": "node",
+	
+	"mounts": [
+		"source=${localWorkspaceFolder}/.env,target=/workspaces/${localWorkspaceFolderBasename}/.env,type=bind,consistency=cached"
+	],
+
+	"containerEnv": {
+		"NODE_ENV": "development",
+		"DEBUG": "*",
+		"COPILOT_ENABLED": "true"
+	},
+
+	"initializeCommand": "echo 'Initializing POS Conejo Negro development environment...'",
+	
+	"updateContentCommand": "npm ci",
+	
+	"shutdownAction": "stopCompose"
+}

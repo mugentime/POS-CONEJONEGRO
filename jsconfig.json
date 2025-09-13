@@ -1,0 +1,59 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020", "DOM"],
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/routes/*": ["./routes/*"],
+      "@/models/*": ["./models/*"],
+      "@/middleware/*": ["./middleware/*"],
+      "@/config/*": ["./config/*"],
+      "@/public/*": ["./public/*"]
+    }
+  },
+  "include": [
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.json"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "*.min.js",
+    "temp",
+    "tmp",
+    ".git",
+    "logs"
+  ],
+  "typeAcquisition": {
+    "enable": true,
+    "include": [
+      "node",
+      "express",
+      "mongoose",
+      "cors",
+      "helmet",
+      "bcryptjs",
+      "jsonwebtoken",
+      "multer",
+      "axios",
+      "pg",
+      "redis"
+    ]
+  }
+}

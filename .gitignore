@@ -35,10 +35,18 @@ pids
 *.pid.lock
 
 # IDE files
-.vscode/
+.vscode/launch.json.user
+.vscode/tasks.json.user
+.vscode/c_cpp_properties.json
+.vscode/settings.json.user
 .idea/
 *.swp
 *.swo
+# Allow VS Code configuration files for Copilot setup
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
 
 # OS generated files
 .DS_Store

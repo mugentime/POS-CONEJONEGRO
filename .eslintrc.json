@@ -1,0 +1,68 @@
+{
+  "env": {
+    "node": true,
+    "es2020": true,
+    "commonjs": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "script"
+  },
+  "rules": {
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-console": "off",
+    "semi": ["error", "always"],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "no-trailing-spaces": "error",
+    "no-multiple-empty-lines": ["error", { "max": 2 }],
+    "comma-dangle": ["error", "never"],
+    "eol-last": "error",
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "no-var": "error",
+    "prefer-const": "error",
+    "no-undef": "error",
+    "no-redeclare": "error"
+  },
+  "globals": {
+    "process": "readonly",
+    "Buffer": "readonly",
+    "__dirname": "readonly",
+    "__filename": "readonly",
+    "module": "readonly",
+    "exports": "readonly",
+    "require": "readonly",
+    "global": "readonly",
+    "console": "readonly"
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js", "*.spec.js", "test/**/*.js", "tests/**/*.js"],
+      "env": {
+        "jest": true,
+        "mocha": true
+      },
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    },
+    {
+      "files": ["public/**/*.js", "js/**/*.js"],
+      "env": {
+        "browser": true,
+        "node": false
+      },
+      "globals": {
+        "fetch": "readonly",
+        "localStorage": "readonly",
+        "sessionStorage": "readonly",
+        "document": "readonly",
+        "window": "readonly",
+        "alert": "readonly",
+        "confirm": "readonly"
+      }
+    }
+  ]
+}
