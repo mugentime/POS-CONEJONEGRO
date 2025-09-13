@@ -1,0 +1,16 @@
+node_modules/
+dist/
+build/
+coverage/
+*.min.js
+.git/
+logs/
+temp/
+tmp/
+data/
+public/libs/
+public/vendor/
+.env*
+package-lock.json
+.vscode/
+.devcontainer/
