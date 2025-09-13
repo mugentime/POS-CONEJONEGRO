@@ -363,6 +363,40 @@ app.get('/api/version', (req, res) => {
 });
 
 /**
+ * Greeting Endpoint
+ * Provides a welcome message for the POS system
+ * @route GET /api/greeting
+ * @returns {Object} Greeting message with system information
+ */
+app.get('/api/greeting', (req, res) => {
+  try {
+    const packageInfo = require('./package.json');
+    
+    res.json({
+      message: 'Hi! Welcome to Conejo Negro POS System',
+      status: 'success',
+      system: {
+        name: packageInfo.name,
+        version: packageInfo.version,
+        description: packageInfo.description
+      },
+      greeting: {
+        text: 'Hello from Conejo Negro Café!',
+        welcomeMessage: 'Your Point of Sale system is ready to serve you.',
+        timestamp: new Date().toISOString()
+      },
+      environment: process.env.NODE_ENV || 'development',
+      uptime: process.uptime()
+    });
+  } catch (error) {
+    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({ 
+      error: 'Greeting service unavailable',
+      message: error.message 
+    });
+  }
+});
+
+/**
  * Build Info Endpoint
  * Provides TaskMaster build verification and deployment metadata
  * @route GET /api/build-info
